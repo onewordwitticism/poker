@@ -1,6 +1,5 @@
+#pragma once
 #include "Card.h"
-
-// helper functions for enumeration
 
 string stringsuit(int i) { 
 	string x = "0";
@@ -29,18 +28,19 @@ string stringvalue(int i) {
 	return x;
 }
 
-ostream& operator<<(ostream& os, Card& const c) {
-	return (os << "(" << c.ret_suitstring() << "," << c.ret_valuestring() << ")\n");
+ostream& operator<<(ostream& os, Card& c) {
+	return (os << "(" << c.ret_suitstring() << "," << c.ret_valuestring() 
+		<< "," << c.ret_in() << "," << c.ret_pos() << ")\n");
 }
 
 
 // try not to use; don't think I will have too.
 int intsuit(string s) {
 	int x = 0;
-	if (s == "H") { x == 0; }
-	if (s == "D") { x == 1; }
-	if (s == "S") { x == 2; }
-	if (s == "C") { x == 3; }
+	if (s == "H") { x = 0; }
+	if (s == "D") { x = 1; }
+	if (s == "S") { x = 2; }
+	if (s == "C") { x = 3; }
 	return x;
 }
 

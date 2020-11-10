@@ -24,13 +24,17 @@
     <ClCompile Include="..\..\Working FLTK Bjarne Questions\Simple_window.cpp" />
     <ClCompile Include="..\..\Working FLTK Bjarne Questions\Window.cpp" />
     <ClCompile Include="Card.cpp" />
+    <ClCompile Include="Dealer.cpp" />
     <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="Hand.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h" />
+    <ClInclude Include="Dealer.h" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="Hand.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

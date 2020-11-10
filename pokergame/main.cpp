@@ -1,25 +1,30 @@
-#include <iostream>
-#include <vector>
-#include "GUI.h"
-#include "Graph.h"
-#include "Simple_window.h"
-#include "Window.h"
-#include "player.h"
-#include <vector>
-#include "Deck.h"
+#pragma once
+#include "Dealer.h"
+#include "Player.h"
 
 
-using namespace std;
-using namespace Graph_lib;
+// how to define global stuff correctly?  I really need to get my scope downpat - heap and stack.
 
+vector <Player> init_players(int num) {
+	vector <Player> p;
+
+	for (int i = 0; i < num; i++) {
+		p.push_back(Player(1000));
+	}
+	return p;
+}
 
 int main() {
-	Deck d;
-	//cout << d.ret_index(Card::suit::diamond, Card::value::eight);
-	//Simple_window win(Point(0,0), 1920, 1080, "No Limit Hold-em");
-	//win.wait_for_button();
 	
-	d.print_deck(cout);
+
+	Dealer Jeeves; 
+	
+	vector <Player> k = init_players(3);
+	Jeeves.shuffle();
+	
+	//Deal_Cards(&Jeeves, &A);
 
 	return 0;
 }
+
+
