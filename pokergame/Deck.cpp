@@ -14,10 +14,15 @@ Deck::Deck() {
 
 	for (int suit = 0; suit < 4; suit++) {
 		for(int value = 0; value < 13; value++) {
-			
 			New_Deck.push_back(new Card(Card::suit(suit), Card::value(value+2), 1, (suit * 13 + value)));
 			state[(suit * 13 + value)] = 1;
 		}
+	}
+}
+
+Deck::~Deck() {
+	for (int i = 0; i < New_Deck.size(); i++) {
+		delete New_Deck[i];
 	}
 }
 
@@ -35,7 +40,7 @@ void Deck::shuffle() {
 	for (int i = 0; i < 52; i++) {
 		for (int j = 0; j < 52; j++) {
 
-			if (positions[i] == (New_Deck[j].ret_pos())) {
+			if (positions[i] == (New_Deck[j]->ret_pos())) {
 				Shuffled_Deck.push_back(New_Deck[j]);
 			}
 		}
@@ -43,20 +48,10 @@ void Deck::shuffle() {
 }
 
 Card Deck::pop_Card() {
-	Card x = Shuffled_Deck[Shuffled_Deck.size() - 1];
+	Card x = *Shuffled_Deck[Shuffled_Deck.size() - 1];
 	Shuffled_Deck.pop_back();
 	return x;
 }
-
-
-
-
-
-
-
-
-
-
 
 // see this - actually needs to be a sort function
 // instead of just brute force linked list checking (lol)
@@ -64,7 +59,7 @@ int Deck::ret_index(Card::suit ss, Card::value vv) {
 	int index = 0; 
 
 	for (int i = 0; i < 52; i++) {
-		if ((New_Deck[i].ret_suit() == ss) && (New_Deck[i].ret_value() == vv)) {
+		if ((New_Deck[i]->ret_suit() == ss) && (New_Deck[i]->ret_value() == vv)) {
 			index = i;
 			
 		}

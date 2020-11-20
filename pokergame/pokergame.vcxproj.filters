@@ -45,6 +45,12 @@
     <ClCompile Include="Dealer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Table.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="det_winner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -60,6 +66,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Dealer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Table.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="det_winner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,6 +1,9 @@
 #pragma once
 #include "Card.h"
 
+const int WINDOW_H = 1080;
+const int WINDOW_W = 1920;
+
 string stringsuit(int i) { 
 	string x = "0";
 	if (i == 0) { x = "H"; }
@@ -60,4 +63,32 @@ int intvalue(string s) {
 	if (s == "K") { x = 13; }
 	if (s == "A") { x = 14; }
 	return x;
+}
+
+
+void Card::draw_lines() const {
+	Closed_polyline::draw_lines();
+	t.draw_lines();
+}
+
+//this is fine
+void Card::define_card_edges(Point p) {
+	if (p.x > WINDOW_W) { cout << "error point width" << endl; }
+	if (p.y > WINDOW_H) { cout << "error point height" << endl; }
+	
+	add(Point(p.x, p.y));
+	add(Point(p.x, p.y + card_h));
+	add(Point(p.x + card_w, p.y + card_h));
+	add(Point(p.x + card_w, p.y));
+}
+
+void Card::set_text(Point p, string text) {
+	t.change_point(p); 
+	t.set_label(text);
+	t.set_font_size(18);
+}
+
+void Card::set_colors_(Color k) {
+	this->Shape::set_color(k);
+	this->t.set_color(k);
 }
