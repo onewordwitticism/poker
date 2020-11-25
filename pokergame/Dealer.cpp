@@ -17,10 +17,10 @@ void Dealer::Deal_playerCards(vector <Player*> p_list) {
 	//	}
 	//}
 
-	p_list[0]->receive_Card(Card(Card::suit::heart, Card::value::two, 0, 0));
-	p_list[0]->receive_Card(Card(Card::suit::heart, Card::value::five, 0, 0));
-	p_list[1]->receive_Card(Card(Card::suit::heart, Card::value::two, 0, 0));
-	p_list[1]->receive_Card(Card(Card::suit::heart, Card::value::eight, 0, 0));
+	p_list[0]->receive_Card(Card(Card::suit::spade, Card::value::king, 0, 0));
+	p_list[0]->receive_Card(Card(Card::suit::spade, Card::value::three, 0, 0));
+	p_list[1]->receive_Card(Card(Card::suit::spade, Card::value::ace, 0, 0));
+	p_list[1]->receive_Card(Card(Card::suit::spade, Card::value::king, 0, 0));
 
 	return;
 }
@@ -30,18 +30,19 @@ void Dealer::Deal_Flop(Table& t) {
 	//	t.receive_Flop(this->Pop_Card());
 	//}
 
-	t.receive_Flop(Card(Card::suit::club, Card::value::five, 0, 0));
-	t.receive_Flop(Card(Card::suit::diamond, Card::value::five, 0, 0));
-	t.receive_Flop(Card(Card::suit::heart, Card::value::two, 0, 0));
+	t.receive_Flop(Card(Card::suit::spade, Card::value::queen, 0, 0));
+	t.receive_Flop(Card(Card::suit::spade, Card::value::jack, 0, 0));
+	t.receive_Flop(Card(Card::suit::spade, Card::value::ten, 0, 0));
 }
 
 void Dealer::Deal_Turn(Table& t) {
 	//t.receive_Turn(this->Pop_Card());
-	t.receive_Turn(Card(Card::suit::heart, Card::value::two, 0, 0));
+	t.receive_Turn(Card(Card::suit::spade, Card::value::nine, 0, 0));
 }
 
 void Dealer::Deal_River(Table& t) {
-	t.receive_River(this->Pop_Card());
+	//t.receive_River(this->Pop_Card());
+	t.receive_River(Card(Card::suit::spade, Card::value::eight, 0, 0));
 }
 
 

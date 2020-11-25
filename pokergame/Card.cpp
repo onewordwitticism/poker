@@ -92,3 +92,5 @@ void Card::set_colors_(Color k) {
 	this->Shape::set_color(k);
 	this->t.set_color(k);
 }
+
+bool operator==(const Card& c1, const Card& c2) { return ((c1.ret_suit() == c2.ret_suit()) && (c1.ret_value() == c2.ret_value())); }

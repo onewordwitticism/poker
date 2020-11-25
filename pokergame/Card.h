@@ -23,19 +23,21 @@ int intvalue(string s);
 class Card: public Closed_polyline {
 public:
 	
-	enum suit { heart = 0, diamond = 1, spade = 2, club = 3 };
+	enum suit { heart = 0, diamond = 1, spade = 2, club = 3, dummysuit = -1 };
 	enum value {
 		two = 2, three = 3, four = 4, five = 5,
 		six = 6, seven = 7, eight = 8, nine = 9, ten = 10,
-		jack = 11, queen = 12, king = 13, ace = 14, DUMMY_COMPARE = -1
+		jack = 11, queen = 12, king = 13, ace = 14, dummyvalue = -1
 	};
 
 	Card(Card::suit ss, Card::value vv, bool indeck, int poss) : s(ss), v(vv),
 		in(indeck), pos(poss), t(Text(Point(0, 0), "NULL")) {
 		/*set_color(Color::black);*/
 	}
-	
 	Card(const Card& k) : s(k.s), v(k.v), in(k.in), pos(k.pos), t(k.t) {}
+	Card() : s(Card::suit::dummysuit), v(Card::value::dummyvalue), in(0), pos(0), t(Text(Point(0, 0), "NULL")) {}
+	Card& operator=(const Card& k) { s = k.s; v = k.v; in = k.in, pos = k.pos; t = k.t; return *this; }
+
 
 	suit ret_suit() const { return s; }
 	value ret_value() const { return v; }
@@ -62,3 +64,5 @@ private:
 };
 
 ostream& operator<<(ostream& os, Card& c);
+bool operator==(const Card& c1, const Card& c2);
+
